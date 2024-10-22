@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>濮院古镇-首页</title>  
+    <style>
+       html, body {  
+            height: 100%;
+			width: auto;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* 防止内容溢出，导致滚动条出现 */
+            display: flex; /* 设置为弹性盒子容器 */
+            justify-content: center; /* 水平居中 */
+        }  
+  
+        .container {   
+			position: relative;
+			width: fit-content;
+			height: 1008px;
+			width: 630px;
+			margin: 0 auto;
+			text-align: center;
+			overflow: hidden;
+        }  
+  
+        #imgContainer1 img {  
+            max-width: 100%; /* 图片最大宽度为容器宽度 */  
+            max-height: 100%; /* 图片最大高度为容器高度 */  
+            width: auto; /* 保持图片的宽高比 */  
+            height: auto; /* 保持图片的宽高比 */  
+        } 
+		#imgContainer2 img {
+		    max-width: 100%; /* 图片最大宽度为容器宽度 */  
+		    max-height: 100%; /* 图片最大高度为容器高度 */  
+		    width: 24%; /* 保持图片的宽高比 */  
+		    height: auto; /* 保持图片的宽高比 */  
+			position:absolute;
+			top:30%;
+			left:58%;
+			z-index: 2;
+		} 
+    </style>  
+</head>  
+<body>  
+<body>  
+    <div class="img-wrapper" id="imgContainer1" style="display:block;">  
+        <img src="images/src46.png" alt="主页">  
+    </div>  
+    <div class="img-wrapper" id="imgContainer2" style="display:none;">  
+        <img src="images/src18.png" alt="亭子">  
+    </div>  
+    <!-- 如果还有更多图片，继续添加更多 .img-wrapper 容器 -->  
+  
+    <script>  
+        // 由于我们使用了id，我们需要单独获取每个元素  
+        // 但更好的做法是使用类名，并查询所有具有该类名的元素  
+        // 这里为了保持与您的原始代码一致，我仍然使用id  
+        const imgContainer1 = document.getElementById('imgContainer1');  
+        const imgContainer2 = document.getElementById('imgContainer2');  
+  
+        // 设置显示时间  
+        setTimeout(() => {  
+            imgContainer2.style.display = "block"; // 1秒后显示第二张图片  
+        }, 1000); // 1秒
+    </script>
+	</body>
+</html>
