@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        html, body {
+            margin: 0;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        body {
+            background-image: url('ysys.jpg');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+        .centered-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            position: relative; /* 相对定位 */
+        }
+        .centered-container img,.map-link img {
+            max-width: 100%;
+            height: auto; /* 保持比例 */
+        }
+        .map-link {
+            position: absolute;
+			height:10%;
+			width:10%;
+            top: 2%;
+            left: 4%; 
+			z-index: 10;
+        }
+    </style>
+    <title>岳氏三进士</title>
+</head>
+<body>
+    <div class="body">
+        <a href="exam.html">
+            <img src="r.png" alt="人物img" style="position:relative;top:5%;">
+        </a>
+        <div class="map-link">
+            <a href="mainmap.html">
+                <img src="ann.png" alt="TOmap">
+            </a>
+        </div>
+    </div>
+</body>
+</html>
