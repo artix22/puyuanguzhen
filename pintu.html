@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>拼图</title>
+    <style type="text/css">
+	    #pin1,#pin2,#pin3,#pin4,#pin5
+		{
+	        animation: fade 3s linear infinite;
+	    }
+		@keyframes fade
+		{
+			from { opacity: 0.2; }
+			to { opacity: 0.8; }
+		}
+    </style>		
+		<script>
+		        // 定义全局变量
+		        let counter = 0;
+		 
+		        window.onload = function() {
+		            // 从localStorage获取计数器值，并把str转换为int
+		            let counterValue = localStorage.getItem('counter');
+		            counter = parseInt(counterValue, 10) || 0;
+		 
+		            // 显示计数器值
+		            document.getElementById('counter-display').innerHTML = "当前进度: " + counter + "/5张拼图";
+					if(counter>=1)
+					{
+						document.getElementById('pin1').style.opacity=1;
+						document.getElementById('pin1').style.animation = 'none';
+					}
+					if(counter>=2)
+					{
+						document.getElementById('pin2').style.opacity=1;
+						document.getElementById('pin2').style.animation = 'none';
+					}
+					if(counter>=3)
+					{
+						document.getElementById('pin3').style.opacity=1;
+						document.getElementById('pin3').style.animation = 'none';
+					}
+					if(counter>=4)
+					{
+						document.getElementById('pin4').style.opacity=1;
+						document.getElementById('pin4').style.animation = 'none';
+					}
+					if(counter>=5)
+					{
+						document.getElementById('pin5').style.opacity=1;
+						document.getElementById('pin5').style.animation = 'none';
+					}
+		        };
+		 
+		        function pintulook() {
+		            // 弹出包含当前碎片数量的警告
+		            alert("已获得 " + counter + " 张拼图");
+		        }
+		    </script>
+			
+	        <style>
+	            #counter-display {
+	                text-align: center;
+	                font-size: 24px;
+	                margin-top: 20%;   
+	            }
+	        </style>
+	</head>
+	<body>
+		<div id="counter-display" onclick="pintulook()">--查看进度--</div>
+		<a href="mainmap.html">
+			<div style="position: absolute; top: 25%; left: 50%; transform: translate(-50%, -50%);color:#ff8279;font-size:40px;"><--"点我进入地图"--></div>
+		</a>
+		
+		<img src='pin1.jpg' id="pin1" style="position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%);opacity:0.2;">
+		<img src='pin2.jpg' id="pin2" style="position: absolute; top: 52%; left: 50%; transform: translate(-50%, -50%);opacity:0.2;">
+		<img src='pin3.jpg' id="pin3" style="position: absolute; top: 62%; left: 50%; transform: translate(-50%, -50%);opacity:0.2;">
+		<img src='pin4.jpg' id="pin4" style="position: absolute; top: 71%; left: 50%; transform: translate(-50%, -50%);opacity:0.2;">
+		<img src='pin5.jpg' id="pin5" style="position: absolute; top: 80%; left: 50%; transform: translate(-50%, -50%);opacity:0.2;">
+	</body>
+</html>
