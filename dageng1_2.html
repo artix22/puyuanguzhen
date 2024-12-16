@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Scaling Animation</title>
+    <style>
+        #bg {
+            animation: biging 3s ease forwards;
+            transform-origin: center;
+            position: absolute; /* 确保绝对定位 */
+            left: 0%; /* 根据需要调整 */
+            top: 10%; /* 根据需要调整 */
+            width: 100%; /* 如果希望图片覆盖整个宽度，则设置此值 */
+            height: auto; /* 保持宽高比 */
+        }
+ 
+        .centered-img {
+            position: absolute;
+            left: 50%;
+            top: 62%; /* 垂直居中 */
+            transform: translate(-50%, -50%); /* 水平和垂直居中 */
+        }
+ 
+        @keyframes biging {
+            from {
+                transform: scale(1.0) translate(0, 0); /* 确保在动画开始时没有额外的平移 */
+                opacity: 1;
+                z-index: 10; /* 注意：z-index在动画中可能不起作用 */
+            }
+            to {
+                transform: scale(3.5) translate(0, 0); /* 同样，确保没有额外的平移 */
+                opacity: 0;
+                z-index: 5; /* 同样，注意z-index */
+            }
+        }
+    </style>
+</head>
+<body>
+    <img src="beigenglou1_1.jpg" id="bg">
+    <img src="beigenglou1_2.jpg" style="position: absolute; left: 0%; top: 10%; z-index: 3; width: 100%; height: auto;">
+    <a href="siwanjie.html">
+        <img src="beigenglou1_2_door.png" class="centered-img" style="z-index: 8;">
+    </a>
+</body>
+</html>
