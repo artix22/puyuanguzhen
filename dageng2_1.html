@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>古代打更报时法</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+ 
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+ 
+        #beigengbg {
+            position: absolute;
+			top:3%;
+            z-index: 1; 
+        }
+ 
+        #beigengnight {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+ 
+        #clickButton {
+            position: absolute;
+            display: inline-block;
+            padding: 0;
+            top:52%;
+			z-index: 8;
+        }
+		#kuaiman{
+			position: absolute;
+			display: inline-block;
+			padding: 0;
+			width:5%;
+			top:48%;
+			right:5%;
+			z-index: 6;
+		}
+		#kuaiman2{
+			position: absolute;
+			display: inline-block;
+			padding: 0;
+			width:5%;
+			top:48%;
+			right:5%;
+			z-index: 7;
+		}
+ 
+        #clickButton img {
+            width: auto; 
+            height: 18vh; 
+        }
+ 
+        #result {
+            margin-top: 20px; 
+        }
+    </style>
+</head>
+<body>
+    <img id="beigengbg" src="beigengbg.png" alt="背景图">
+    <img id="beigengnight" src="beigengnight.png" alt="夜晚图">
+	<a id="clickfontyes" href="mainmap2.html" onclick="pintu()">
+		<img id="true" src="uifont.png" alt="字幕" style="opacity: 0;z-index: 10;">
+	</a>
+	<a id="clickfontno" onclick="fade(this)">
+		<img id="false" src="uifontx.jpg" alt="字幕2" style="opacity: 0;z-index: 10;">
+	</a>
+    <a id="clickButton">
+        <img src="clickButton.png" alt="点击按钮">
+    </a>
+    <img src="slow1.png" id="kuaiman" alt="进度">
+	<img src="slow2.png" id="kuaiman2" alt="进度">
+ 
+    <script>
+		function pintu(){
+			let counterValue = localStorage.getItem('counter');
+			let counter = parseInt(counterValue, 10) || 0; // 从localStorage获取counter值，如果没有则默认为0
+			counter =1; // 增加counter的值
+			localStorage.setItem('counter', counter); 
+		}
+		
+		function fade(e){
+			e.style.opacity=0;
+			e.style.zIndex=1;
+		}
+		
+		
+        document.addEventListener("DOMContentLoaded", function() {
+            const button = document.getElementById("clickButton");
+            const result = document.getElementById("result");
+            let lastClickTime = null;
+ 
+            button.addEventListener("click", function() {
+                const currentTime = new Date().getTime();
+ 
+                if (lastClickTime !== null) {
+                    const clickDuration = currentTime - lastClickTime; // 计算点击间隔（毫秒）
+                    const clickSpeed = 1000 / clickDuration; // 计算每秒点击次数（CPS，Clicks Per Second）
+ 
+                    //result.textContent = `上次点击间隔: ${clickDuration} 毫秒, 点击速度: ${clickSpeed.toFixed(2)} CPS`;
+					if(clickDuration>=1000 && clickDuration<=2000)
+					{
+						document.getElementById("beigengnight").src="beigengday.png";
+						document.getElementById("true").style.opacity=1;
+						document.getElementById("clickButton").style.zIndex = 8;
+						document.getElementById("clickfontyes").style.zIndex = 10;
+
+					}
+					else{
+						document.getElementById("false").style.opacity=1;
+						document.getElementById("clickfontno").style.zIndex = 10;
+					}
+                }
+ 
+                lastClickTime = currentTime;
+            });
+        });
+    </script>
+</body>
+</html>
