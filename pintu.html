@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>拼图</title>
+    <style type="text/css">
+	    #pin1,#pin2,#pin3,#pin4,#pin5
+		{
+	        animation: fade 3s linear infinite;
+	    }
+		@keyframes fade
+		{
+			0% { opacity: 0.2; }
+			50% { opacity: 0.5; }
+			100%{ opacity: 0.75; }
+		}
+    </style>		
+		<script>
+		        // 定义全局变量
+		        let counter = 0;
+		 
+		        window.onload = function() {
+		            // 从localStorage获取计数器值，并把str转换为int
+		            let counterValue = localStorage.getItem('counter');
+		            counter = parseInt(counterValue, 10) || 0;
+		 
+		            // 显示计数器值
+		            document.getElementById('counter-display').innerHTML = "当前进度: " + counter + "/4张拼图";
+					if(counter==0)
+					{
+						document.getElementById('dynamicLink1').style.display='block';
+					}
+					if(counter==1)
+					{
+						document.getElementById('dynamicLink2').style.display='block';
+						
+						document.getElementById('pin1').style.opacity=1;
+						document.getElementById('pin1').style.animation = 'none';
+					}
+					if(counter==2)
+					{
+						document.getElementById('dynamicLink3').style.display='block';
+						
+						document.getElementById('pin1').style.opacity=1;
+						document.getElementById('pin1').style.animation = 'none';
+						document.getElementById('pin2').style.opacity=1;
+						document.getElementById('pin2').style.animation = 'none';
+					}
+					if(counter==3)
+					{
+						document.getElementById('dynamicLink4').style.display='block';
+						
+						document.getElementById('pin1').style.opacity=1;
+						document.getElementById('pin1').style.animation = 'none';
+						document.getElementById('pin2').style.opacity=1;
+						document.getElementById('pin2').style.animation = 'none';
+						document.getElementById('pin3').style.opacity=1;
+						document.getElementById('pin3').style.animation = 'none';
+					}
+					if(counter==4)
+					{
+						document.getElementById('dynamicLink4').style.display='block';
+						
+						document.getElementById('pin1').style.opacity=1;
+						document.getElementById('pin1').style.animation = 'none';
+						document.getElementById('pin2').style.opacity=1;
+						document.getElementById('pin2').style.animation = 'none';
+						document.getElementById('pin3').style.opacity=1;
+						document.getElementById('pin3').style.animation = 'none';
+						document.getElementById('pin4').style.opacity=1;
+						document.getElementById('pin4').style.animation = 'none';
+					}
+		        };
+		 
+		        function pintulook() {
+		            // 弹出包含当前碎片数量的警告
+		            alert("已获得 " + counter + " 张拼图");
+		        }
+
+		    </script>
+			
+	        <style>
+	            #counter-display {
+	                text-align: center;
+	                font-size: 24px;
+	                margin-top: 20%;   
+	            }
+	        </style>
+	</head>
+	<body>
+		<div id="counter-display" onclick="pintulook()">--查看进度--</div>
+		<a href="mainmap1.html" id="dynamicLink1" style="display:none;">
+			<div style="position: absolute; top: 19%; left: 50%; transform: translate(-50%, -50%);color:#ff8279;font-size:40px;"><--"点我返回地图"--></div>
+		</a>
+		 <a href="mainmap2.html" id="dynamicLink2" style="display:none;">
+		 	<div style="position: absolute; top: 19%; left: 50%; transform: translate(-50%, -50%);color:#ff8279;font-size:40px;"><--"点我返回地图"--></div>
+		 </a>
+		 <a href="mainmap3.html" id="dynamicLink3" style="display:none;">
+		 	<div style="position: absolute; top: 19%; left: 50%; transform: translate(-50%, -50%);color:#ff8279;font-size:40px;"><--"点我返回地图"--></div>
+		 </a>
+		 <a href="mainmap4.html" id="dynamicLink4" style="display:none;">
+		 	<div style="position: absolute; top: 19%; left: 50%; transform: translate(-50%, -50%);color:#ff8279;font-size:40px;"><--"点我返回地图"--></div>
+		 </a>
+		
+		<img src='pin1.jpg' id="pin1" style="position: absolute; top: 30%; left: 50%; transform: translate(-50%, -50%);opacity:0.2;">
+		<img src='pin2.jpg' id="pin2" style="position: absolute; top: 44%; left: 50%; transform: translate(-50%, -50%);opacity:0.2;">
+		<img src='pin3.jpg' id="pin3" style="position: absolute; top: 57%; left: 50%; transform: translate(-50%, -50%);opacity:0.2;">
+		<img src='pin4.jpg' id="pin4" style="position: absolute; top: 69%; left: 50%; transform: translate(-50%, -50%);opacity:0.2;">
+<!-- 		<img src='pin5.jpg' id="pin5" style="position: absolute; top: 82%; left: 50%; transform: translate(-50%, -50%);opacity:0.2;"> -->
+	</body>
+</html>
