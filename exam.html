@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        html, body {
+            margin: 40px auto;
+            padding: 0;
+            height: 90%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        body {
+			top:20%;
+			left:50%;
+			justify-content: center;
+            background-image: url('jz.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .question-option {
+            position: absolute;
+            font-size: 25px;
+            font-family: 宋体;
+            cursor: pointer;
+        }
+		
+		.buttonposition{
+			position:absolute;
+			top:31.8%;
+			left:9.5%;
+		}
+    </style>
+    <script>
+		var num=0;
+        function yes(element){
+            element.style.color = "green";
+			num+=1;
+			alert("只用"+num+"次就答对啦，获得一张拼图！");
+			num=0;
+			//增加关卡进度
+			let counterValue = localStorage.getItem('counter');
+			let counter = parseInt(counterValue, 10) || 0; // 从localStorage获取counter值
+			counter =2; // 增加counter的值
+			localStorage.setItem('counter', counter); 
+        }
+		function no(element){
+		    element.style.color = "red";
+			alert("猜错啦，再试一次吧 (￢ω￢)");
+			num+=1;
+		}
+    </script>
+    <title>大堂考试</title>
+</head>
+<body>
+    <h1 style="position: absolute; top: 38%; left: 50%; transform: translate(-50%, -50%); font-size: 25px; font-family: 宋体;">岳元声：字之初，号石帆，别号潜初子。明万历十一年进士。先后任安徽旌德知县、北直隶大名府教授，迁国子博士转监丞，再迁工部主事，最高职务为南京户部右侍郎。他在任职期间刚正不阿，每发谠言，应对明神宗的一些施策，被称为“铁监丞”。
+<br>请问岳元声哪年进士？</h1>
+    <div class="question-option" style="top: 48%; left: 50%; transform: translate(-50%, -50%);" id="a" onclick="no(this)"> A 1585</div>
+    <div class="question-option" style="top: 52%; left: 50%; transform: translate(-50%, -50%);" id="b" onclick="yes(this)"> B 1583</div>
+    <div class="question-option" style="top: 56%; left: 50%; transform: translate(-50%, -50%);" id="c" onclick="no(this)"> C 2589</div>
+    <div class="question-option" style="top: 60%; left: 50%; transform: translate(-50%, -50%);" id="d" onclick="no(this)"> D 1683 </div>
+	<a href="mainmap3.html" class="buttonposition"> <img src="ann.png" style="height:78px;width:76px;z-index: 10;"> </a>
+</body>
+</html>
