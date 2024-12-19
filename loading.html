@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>加载界面</title>
+		<style type="text/css">
+		html,body{
+					
+					width:100%;
+					margin:0px;
+					padding: 0px;
+					display: flex;
+					justify-content: center;
+		            align-items: center;
+			        height: 100vh;
+		            overflow: hidden; 
+				}
+					
+		body{
+				display:flex;
+				flex-direction:column;
+			}
+				
+		.container{
+					min-width:640px;
+					position: relative;
+					height:100vh;
+					margin:0 auto;
+					text-align:center;
+					overflow:hidden;
+				}
+		#bg{
+					position:relative;
+					margin:auto;
+					width:fit-content;
+					overflow: hidden;
+				}
+		.bgimg{
+				width:100%;
+				height:100%;
+				height:100vh;
+				}
+		.load {
+		            display: flex;
+		            flex-direction: column;
+					position:absolute;
+					top:37%;
+					left:0%;
+		            align-items: center;
+		            justify-content: center;
+		            text-align: center;
+		            width: 100%;
+		            max-width: 600px; /* Limit maximum width for better readability on large screens */
+		            margin: auto;
+		            
+		            box-sizing: border-box; /* Ensure padding is included in width calculation */
+		            
+		            
+		        }
+		 
+		        .load img {
+		            max-width: 100%; /* Ensure images scale with the container */
+		            height: auto;
+					 width:33%;
+					 margin-top: 1%;/* Maintain aspect ratio */
+		             /* Add some spacing between elements */
+		        }
+		 
+		        .progress-bar-container {
+		            width: 52%;
+		            background-color: #ffffff; /* Background color for the progress bar container */
+		            border: 5px solid #c17a10; /* 边框加粗为4px，颜色设为棕色（#8B4513） */
+		            border-radius: 8px;  /* Optional: rounded corners */
+		             /* Add some spacing */
+		            overflow: hidden; /* Hide overflow to create a clipping effect */
+		        }
+		 
+		        .progress-bar {
+		            width: 0%; /* Start with 0% width */
+		            height: 10px; /* Height of the progress bar */
+		            background-color: #f6c602; /* Color of the progress bar */
+		            transition: width 0.1s linear ; /* Smooth transition for the progress bar */
+		        }
+		.a{
+			position:relative;
+			width:70%;
+			height:100px;
+		}
+		.a img{
+			 position: absolute; /* 图片设置为绝对定位 */
+			    bottom: 0; /* 图片顶部对齐容器的顶部 */
+			     /* 图片左侧对齐容器的左侧 */
+			     /* 图片宽度设置为容器的100% */
+			    height: auto; 
+		}
+		.a img[alt="ld3"] {
+		    z-index: 2;
+			left: -6%;
+			 width:25%;
+			 animation: ripple 6s linear 1 forwards 0.5s;/* 确保ld3.png位于上方 */
+		}
+		@keyframes ripple{
+			0%{
+				left:-6%;
+			}
+			
+			100%{
+				left:65%;
+			}
+		}
+		
+		 
+		.a img[alt="Image 1"] {
+		    z-index: 1;
+			left:13%;
+			
+			 width:75%;/* 确保wind.png位于下方 */
+		}	
+		
+		@media (max-width: 768px) {
+			.container {
+				min-width: 100%; 
+				background-size: cover; 
+			}
+			 
+		}
+	</style>
+	</head>
+	<body>
+		<div class="container">
+		    <div id="bg">
+			    <img class="bgimg" src="bg3.png"/>
+				 <div class="load">
+					 <div class="a">
+					      <img src="wind.png" alt="Image 1" style="z-index:1;">
+					       <img src="ld3.png" alt="ld3" style="z-index: 2;">
+					 </div>				     <!-- Replace with your image path -->
+				    <div class="progress-bar-container">
+				        <div class="progress-bar" id="progressBar"></div> <!-- Progress bar will be styled and updated via JavaScript -->
+				    </div>
+				    <img src="ld1.png" alt="Image 2"> <!-- Replace with your image path -->
+				</div>    
+					
+
+				
+			</div>
+		</div>
+	<script>
+	        // Example script to update the progress bar (for demonstration purposes only)
+	        let progress = 0;
+			setTimeout(() => {
+	            const progressBar = document.getElementById('progressBar');
+	            const interval = setInterval(() => {
+	                progress += 1; // Increase progress by 10% each second
+	                progressBar.style.width = progress + '%'; // Update the width of the progress bar
+	 
+	            // Stop the interval when progress reaches 100%
+	                if (progress >= 100) {
+	                    clearInterval(interval);
+						window.location.href = 'mainmap1.html';
+	                }
+	            }, 60);
+			}, 500);// Update progress every second
+	    </script>
+	</body>
+</html>
