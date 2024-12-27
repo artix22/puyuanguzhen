@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* 确保这个背景图片在其他内容下方 */
+        }
+        .jz-image {
+            position: absolute;
+            top: 7%;
+            left: 50%;
+            transform: translateX(-50%); /* 使用 translateX 来水平居中 */
+            width: 100%; /* 调整宽度以适应布局 */
+            z-index: 0; /* 确保这个图片在背景图片上方 */
+        }
+        .question-option {
+            position: absolute;
+            font-size: 25px;
+            font-family: 宋体;
+            cursor: pointer;
+        }
+        .buttonposition {
+            position: absolute;
+            top: 10%; /* 调整位置以适应布局 */
+            left: 15%;
+            transform: translateX(-50%); /* 水平居中 */
+        }
+    </style>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+	var num=0;
+        function yes(element){
+            element.style.color = "green";
+			num+=1;
+			// alert("只用"+num+"次就答对啦，获得一张拼图！");
+			$("h1").text("");
+			$("h1").text("第"+num+"次回答正确，点左上角返回地图"); 
+			num=0;
+			
+			let counterValue = localStorage.getItem('counter');
+			let counter = parseInt(counterValue, 10) || 0; // HTML5
+			counter =2; //碎片*2
+			localStorage.setItem('counter', counter); 
+        }
+		function no(element){
+		    element.style.color = "red";
+			$("h1").text("");
+			$("h1").text("回答错误，再试一次吧"); 
+			num+=1;
+		}
+    </script>
+    <title>大堂考试</title>
+</head>
+<body>
+    <img src="exambgfade.jpg" class="background">
+	<img src="exambgfade.jpg" class="background" id="right">
+    <img src="jz.png" class="jz-image">
+    <h1 style="position: absolute; top: 38%; left: 50%; transform: translate(-50%, -50%); font-size: 30px; font-family: 宋体;color: #764019;">
+        &nbsp岳元声：字之初，号石帆，别号潜初子。明万历(1573)十一年进士。先后任安徽旌德知县、北直隶大名府教授，迁国子博士转监丞，再迁工部主事，最高职务为南京户部右侍郎。他在任职期间刚正不阿，每发谠言，应对明神宗的一些施策，被称为“铁监丞”。
+        <br>&nbsp请问岳元声哪年进士？
+    </h1>
+    <div class="question-option" style="top: 49%; left: 50%; transform: translate(-50%, -50%);" id="a" onclick="no(this)">A 1585年</div>
+    <div class="question-option" style="top: 51%; left: 50%; transform: translate(-50%, -50%);" id="b" onclick="yes(this)">B 1583年</div>
+    <div class="question-option" style="top: 53%; left: 50%; transform: translate(-50%, -50%);" id="c" onclick="no(this)">C 2589年</div>
+    <div class="question-option" style="top: 55%; left: 50%; transform: translate(-50%, -50%);" id="d" onclick="no(this)">D 1683年</div>
+    <a href="mainmap3.html" class="buttonposition">
+        <img src="ann.png" style="height: 78px; width: 76px;">
+    </a>
+</body>
+</html>
+
