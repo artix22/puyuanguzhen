@@ -25,7 +25,9 @@
 			
 			.beijing {
 				max-width: 100%;
+				/*最大宽度为100%*/
 				max-height: 100%;
+				/*最大高度为100%*/
 				height: 100vh;
 			}
 			
@@ -35,10 +37,10 @@
 				left: 84.5%;
 				transform: translate(-50%, 0%);
 				bottom: 73.5%;
-				z-index: 1;
+				z-index: 2;
 			}
 			
-
+		
 			
 			.pai3 {
 				position: absolute;
@@ -46,7 +48,7 @@
 				left: 42.7%;
 				transform: translate(-50%, 0%);
 				bottom: 34.8%;
-				z-index: 1;
+				z-index: 2;
 			}
 			
 			.pai2 {
@@ -56,34 +58,43 @@
 				left: 78.4%;
 				transform: translate(-50%, 0%);
 				bottom: 36.7%;
-				z-index: 1;
+				z-index: 2;
 			}
 			
-
+		
 			.pai1 {
 				position: absolute;
 				width: 12%;
 				left: 75.4%;
 				transform: translate(-50%, 0);
 				bottom: 4.2%;
-				z-index: 1;
+				z-index: 2;
 				}
-			.paibag {
+			.paibag1 {
 				position: absolute;
 				width: 15%;
 				left: 10.2%;
 				transform: translate(-50%, 0);
-				bottom: 51.4%;
+				top: 12%;
+				z-index: 2;
+				}
+			.paibag2 {
+				position: absolute;
+				width: 15%;
+				left: 10.2%;
+				transform: translate(-50%, 0);
+				top: 2.4%;
+				z-index: 2;
+				}
+			.paibagbg {
+				position: absolute;
+				width: 105%;
+				left: 50%;
+				transform: translate(-50%, 0);
+				top: -2%;
 				z-index: 1;
 				}
 				
-			.blackbg{
-				transition:transform 2s ease;
-			}
-			@keyframe transform{
-				from{opacity:0;}
-				to{opacity:1;}
-			}
 		</style>
 	</head>
 
@@ -107,9 +118,15 @@
 			    <img class="pai1" id="pai1" src="pai9.png" style="opacity: 0.65;pointer-events: none;">
 			</a>
 			
-			<a href="pintunext.html">
-			    <img class="paibag" id="paibag" src="gotobag.png" style="">
+			<a href="pintunext.html" onclick="show()">
+			    <img class="paibag1" id="paibag" src="gotobag.png" style="">
 			</a>
+			
+			<a href="index.html" onclick="show()">
+			    <img class="paibag2" id="paibag" src="gotohome.png" style="">
+			</a>
+			
+			<img class="paibagbg" id="paibag2" src="mainmapbg.png" style="">
 		</div>
 		    
 	</body>
