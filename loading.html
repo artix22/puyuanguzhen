@@ -150,7 +150,7 @@
 	<script>
 	        $(document).ready(function() {
 	        let progress = 0;
-			const targetUrl = 'mainmap.html';
+			const targetUrl = "mainmap1.html";
 			setTimeout(function() {
 			                const $progressBar = $('#progressBar');
 			                const interval = setInterval(function() {
@@ -159,6 +159,7 @@
 	            
 	                if (progress >= 100) {
 	                                        clearInterval(interval);
+											window.location.href = targetUrl; 
 	                                    }
 	                                }, 60); 
 	                            }, 500); 
