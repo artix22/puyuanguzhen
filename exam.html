@@ -4,41 +4,66 @@
 <head>
     <meta charset="utf-8">
     <style>
+        /* 基本的样式重置和布局 */
         html, body {
             margin: 0;
             padding: 0;
             height: 100%;
             display: flex;
-            justify-content: center;
+            flex-direction: column; /* 改为列方向布局，以便更好地适应小屏幕 */
             align-items: center;
+            justify-content: center;
+            text-align: center; /* 文本居中 */
         }
+         
         .background {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1; /* 确保这个背景图片在其他内容下方 */
+            z-index: -1;
         }
+         
         .jz-image {
-            position: absolute;
-            top: 5%;
-            left: 50%;
-            transform: translateX(-50%); /* 使用 translateX 来水平居中 */
-            width: 100%; /* 调整宽度以适应布局 */
-            z-index: 0; /* 确保这个图片在背景图片上方 */
+            width:200%; /* 使用百分比宽度 */
+            height: auto; /* 保持图片比例 */
+            margin-top: -10%; /* 调整位置以适应新的布局 */
+			transform: translateX(3%); 
         }
-        .question-option {
-            position: absolute;
-            font-size: 25px;
-            font-family: 宋体;
+         
+        h1 {
+            font-size: 2vw; /* 使用视口宽度单位来设置字体大小 */
+            margin: 10px 0; /* 添加一些外边距 */
+        }
+         
+        .question-option,.question-option1 {
+            font-size: 2.5vw; 
+            margin: 10px 0; 
             cursor: pointer;
+            display: inline-block; 
+            width: 80%; 
+            text-align: center; /
         }
-        .buttonposition {
-            position: absolute;
-            top: 10%; /* 调整位置以适应布局 */
-            left: 15%;
-            transform: translateX(-50%); /* 水平居中 */
+		
+		.buttonposition {
+		            position: absolute;
+		            top: 10%; /* 调整位置以适应布局 */
+		            left: 15%;
+		            transform: translateX(-50%); /* 水平居中 */
+		        }
+         
+        /* 媒体查询 */
+        @media (max-width: 2048px) {
+            .question-option {
+				font-size: 2vw;
+                width: 60%;
+				transform: translateY(-5%);
+            }
+			.question-option1 {
+				font-size: 1vw;
+			    width: 58%;
+			}
         }
     </style>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -70,14 +95,13 @@
     <img src="exambgfade.jpg" class="background">
 	<img src="exambgfade.jpg" class="background" id="right">
     <img src="jz.png" class="jz-image">
-    <h1 style="position: absolute; top: 38%; left: 50%; transform: translate(-50%, -50%); font-size: 30px; font-family: 宋体;color: #764019;">
-        &nbsp岳元声：字之初，号石帆，别号潜初子。明万历(1573)十一年进士。先后任安徽旌德知县、北直隶大名府教授，迁国子博士转监丞，再迁工部主事，最高职务为南京户部右侍郎。他在任职期间刚正不阿，每发谠言，应对明神宗的一些施策，被称为“铁监丞”。
-        <br>&nbsp请问岳元声哪年进士？
+    <h1 class="question-option1" style="position: absolute; top: 38%; left: 50%; transform: translate(-50%, -50%); font-size: 3vw; font-family: 宋体;color: #764019;">
+        &nbsp岳元声：字之初，号石帆，别号潜初子。明万历(1573)十一年进士。先后任安徽旌德知县、北直隶大名府教授，迁国子博士转监丞，再迁工部主事，最高职务为南京户部右侍郎。他在任职期间刚正不阿，每发谠言，应对明神宗的一些施策，被称为“铁监丞”。请问岳元声哪年进士？
     </h1>
-    <div class="question-option" style="top: 49%; left: 50%; transform: translate(-50%, -50%);" id="a" onclick="no(this)">A 1585年</div>
-    <div class="question-option" style="top: 51%; left: 50%; transform: translate(-50%, -50%);" id="b" onclick="yes(this)">B 1583年</div>
-    <div class="question-option" style="top: 53%; left: 50%; transform: translate(-50%, -50%);" id="c" onclick="no(this)">C 2589年</div>
-    <div class="question-option" style="top: 55%; left: 50%; transform: translate(-50%, -50%);" id="d" onclick="no(this)">D 1683年</div>
+    <div class="question-option" style="position:absolute;top: 60%; left: 35%; transform: translate(-50%, -50%);" id="a" onclick="no(this)">A 1585年</div>
+    <div class="question-option" style="position:absolute;top: 60%; left: 75%; transform: translate(-50%, -50%);" id="b" onclick="yes(this)">B 1583年</div>
+    <div class="question-option" style="position:absolute;top: 65%; left: 35%; transform: translate(-50%, -50%);" id="c" onclick="no(this)">C 2589年</div>
+    <div class="question-option" style="position:absolute;top: 65%; left: 75%; transform: translate(-50%, -50%);" id="d" onclick="no(this)">D 1683年</div>
     <a href="mainmap3.html" class="buttonposition">
         <img src="ann.png" style="height: 78px; width: 76px;">
     </a>
