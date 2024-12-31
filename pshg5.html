@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>濮商会馆明清</title>
+	<style type="text/css">
+	
+			html,body{
+						
+						width:100%;
+						margin:0px;
+						padding: 0px;
+					}
+						
+			body{
+					display:flex;
+					flex-direction:column;
+				}
+					
+			.container{
+						min-width:640px;
+						position: relative;
+						height:100vh;
+						margin:0 auto;
+						text-align:center;
+						overflow:hidden;
+					}
+			#bg{
+						position:relative;
+						margin:auto;
+						width:fit-content;
+						overflow: hidden;
+					}
+			
+			#back{
+				    position: absolute;
+					width: 12%;
+					right: 82.9%;
+					top: 2.5%;
+					z-index: 10;
+					cursor: pointer;
+				}
+			
+			.bgimg{
+					width:100%;
+					height:100%;
+					height:100vh;
+					}
+			#c{
+				display: flex;
+				
+				position:absolute;
+				top:83%;
+				transform: translate(0%,-50%);
+				align-items: center;
+				justify-content: center;
+				text-align: center;
+				width: 100%;
+				max-width: 600px; /* Limit maximum width for better readability on large screens */
+				margin: auto;
+				
+							
+							
+				box-sizing: border-box;
+			}
+			#jc{
+				max-width: 100%; /* Ensure images scale with the container */
+				height: auto;
+				 width:89%;
+				 margin-top: 0;
+			}
+			#js{
+				position:absolute;
+				width:69%;
+				height:60%;
+				text-align: left;
+			}
+			#js-text {
+						color: #ad7600;
+						font-weight: bold;
+						white-space: normal; /* 保持空白字符和换行符 */
+						width:100%;
+						 height:100%;/* 隐藏超出容器的文字 */
+						display: inline-block; /* 允许设置宽度和高度 */
+						vertical-align: top;
+						/* 垂直对齐 */
+					}
+			 
+					.typing-effect {
+						display: inline-block; /* 行内块级元素 */
+						opacity: 0; /* 初始透明度 */
+						animation: fadeIn 0.1s forwards; /* 动画效果 */
+					}
+			 
+					@keyframes fadeIn {
+						to {
+							opacity: 1;
+						}
+					}
+			#b{
+				display: flex;
+				
+				position:absolute;
+				top:56%;
+				transform: translate(0%,-50%);
+				align-items: center;
+				text-align: center;
+				
+				width: 100%;
+				max-width: 600px; /* Limit maximum width for better readability on large screens */
+				margin: auto;						
+				box-sizing: border-box;
+			}
+			#jiantou{
+				max-width: 100%; /* Ensure images scale with the container */
+				height: auto;
+				 width:100%;
+				 animation: ripple 1.5s linear infinite 7s;
+	             cursor: pointer;
+			}
+			.link-inline-block {
+			    display:inline-block; /* 设置为行内块级元素 */
+			    text-decoration: none; /* 去除下划线 */
+			    width:50%;
+				position:absolute;
+				left:35%;
+			}
+			@keyframes ripple{
+				0%,10%,90%, 100% {
+				    opacity: 1;
+				  }
+				  25% {
+				    opacity: 0.85;
+				  }
+				  50% {
+				    opacity: 0.7;
+				  }
+				  75% {
+				    opacity: 0.85;
+				  }
+			}
+	       
+			/* 针对移动端设备的调整 */
+			@media (max-width: 768px) {
+				.container {
+					min-width: 100%; 
+					background-size: cover; 
+				}
+				.back, .button {
+					
+					width: auto; 
+					bottom: initial;
+					left: initial; 
+					
+				}
+			}
+		</style>
+		<script>
+			 document.addEventListener('DOMContentLoaded', function() {
+			 			const textToDisplay = "明清时期是濮商发展的鼎盛时期。濮院已经成为江南地区重要的商业中心之一，与周边的乌镇、南浔等古镇齐名。濮商在丝绸贸易方面占据了重要地位，濮绸更是与杭纺、湖绉、萎缎并称“江南四大名绸”，其产品远销全国各地，甚至出口到海外，为濮商带来了丰厚的利润。";
+			 			const jsTextElement = document.getElementById('js-text');
+			 			let textIndex = 0;
+			 			const typingSpeed = 50; // 打字速度，单位毫秒
+			  
+			 			function typeText() {
+			 				if (textIndex < textToDisplay.length) {
+			 					const newSpan = document.createElement('span');
+			 					newSpan.className = 'typing-effect';
+			 					newSpan.textContent = textToDisplay[textIndex];
+			 					jsTextElement.appendChild(newSpan);
+			 					textIndex++;
+			 					setTimeout(typeText, typingSpeed);
+			 				}
+			 			}
+			  
+			 			typeText();
+			  
+			 			// 调整字体大小的函数（如果需要的话）
+			 			function adjustFontSize() {
+			 				const container = document.getElementById('c');
+			 				const baseFontSize = 18; // 基础字体大小
+			 				const scaleFactor = Math.min(container.clientWidth / 600, container.clientHeight / 200); // 假设 600x300 是设计时的参考尺寸（注意这里我改为了300，因为#c的高度看起来像是与这个值相关）
+			 				const newFontSize = `${baseFontSize * scaleFactor}px`;
+			 				const jsElementWrapper = document.querySelector('#c #js'); // 获取#js的父容器或者直接#js（如果#js本身需要调整大小）
+			 				jsElementWrapper.style.fontSize = newFontSize; // 注意这里可能需要调整选择器以正确应用样式
+			  
+			 				// 由于打字效果是基于span元素的，我们需要确保这些span元素的字体大小也正确
+			 				// 但是在这个例子中，我们已经通过CSS设置了#js-text内span的样式，所以这里不需要额外调整
+			 				// 如果需要，可以通过遍历#js-text内的所有span元素并设置它们的字体大小来实现
+			 			}
+			  
+			 			window.addEventListener('resize', adjustFontSize);
+			 			window.addEventListener('load', adjustFontSize);
+			 		});
+		</script>
+	</head>
+	<body>
+		
+	
+		<div class="container">	
+		    <div id="bg">
+			    <img class="bgimg" src="psbg5.png"/>
+				<div id="b">
+				    <a href="pshg6.html" class="link-inline-block">
+				    	<img id="jiantou" src="jiantou2.png" alt="箭头" />
+				    </a>
+				</div>	
+			    <a href="pushangwenhua1_1.html">
+					<<img id="back" src="psback.png" alt="返回键"/>
+				</a>
+				<div id="c">
+				    <img id="jc" src="juece.png"/>
+					<div id="js">
+						<span id="js-text"></span> <!-- 这里是显示打字效果的容器 -->
+					</div>
+				</div>
+			</div>
+		</div>
+	
+	</body>
+	</html>
