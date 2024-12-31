@@ -26,10 +26,13 @@
         }
          
         .jz-image {
-            width:200%; /* 使用百分比宽度 */
-            height: auto; /* 保持图片比例 */
-            margin-top: -10%; /* 调整位置以适应新的布局 */
-			transform: translateX(6%); 
+            position: fixed;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 120%;
+			width: auto;
+            margin-top: 0;
+            z-index: 0;
         }
          
         h1 {
@@ -54,7 +57,7 @@
 		        }
          
         /* 媒体查询 */
-        @media (max-width: 2048px) {
+        @media (max-width: 748px) {
             .question-option {
 				font-size: 2vw;
                 width: 60%;
@@ -63,6 +66,15 @@
 			.question-option1 {
 				font-size: 1vw;
 			    width: 58%;
+			}
+			.jz-image {
+			    position: fixed;
+			    left: 50%;
+			    transform: translateX(-50%);
+			    height: 200%;
+				width: auto;
+			    margin-top: 0;
+			    z-index: 0;
 			}
         }
     </style>
