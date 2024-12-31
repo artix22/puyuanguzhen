@@ -126,6 +126,7 @@
 			 
 		}
 	</style>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	</head>
 	<body>
 		<div class="container">
@@ -147,21 +148,21 @@
 			</div>
 		</div>
 	<script>
-	        // Example script to update the progress bar (for demonstration purposes only)
+	        $(document).ready(function() {
 	        let progress = 0;
-			setTimeout(() => {
-	            const progressBar = document.getElementById('progressBar');
-	            const interval = setInterval(() => {
-	                progress += 1; // Increase progress by 10% each second
-	                progressBar.style.width = progress + '%'; // Update the width of the progress bar
-	 
-	            // Stop the interval when progress reaches 100%
+			const targetUrl = 'mainmap.html';
+			setTimeout(function() {
+			                const $progressBar = $('#progressBar');
+			                const interval = setInterval(function() {
+			                    progress += 1; 
+			                    $progressBar.css('width', progress + '%');
+	            
 	                if (progress >= 100) {
-	                    clearInterval(interval);
-						window.location.href = 'mainmap1.html';
-	                }
-	            }, 60);
-			}, 500);// Update progress every second
+	                                        clearInterval(interval);
+	                                    }
+	                                }, 60); 
+	                            }, 500); 
+	                        });
 	    </script>
 	</body>
 </html>
