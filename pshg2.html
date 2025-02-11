@@ -221,6 +221,7 @@
 						 height:65%;/* 隐藏超出容器的文字 */
 						display: inline-block; /* 允许设置宽度和高度 */
 						vertical-align: top;
+						line-height: 1.6;
 						/* 垂直对齐 */
 					}
 			#ty{
@@ -243,12 +244,12 @@
 				z-index:11;
 				cursor: pointer;
 			}
+			
 			#yh{
 				position:absolute;
 				width:40%;
-				left:27%;
-				
-				bottom:-15%;
+				left:28.5%;
+				bottom:-18%;
 				display:none;
 				z-index:11;
 				animation:yh 5s linear 1 forwards ;
@@ -262,6 +263,41 @@
 					  opacity: 1;
 				  }
 			}
+			.vol1{
+					height:2.1%;
+					width:1.4%;
+					position:absolute;
+					top:6.8%; left:40.5%; z-index: 10000; 
+					
+				}
+			.vol2{
+					height:1.5%;
+					width:1%;
+					position:absolute;
+					top:27.6%; left:57%; z-index: 10000; 
+					
+				}
+			.vol0{
+					height:0;
+					width:0;
+					position:absolute;
+					top:0%; left:0%; z-index: 10000; 
+					
+				}
+			.vol3-1{
+					height:2.1%;
+					width:1.4%;
+					position:absolute;
+					top:6.8%; left:40.5%; z-index: 10000; 
+					
+				}
+			.vol3-2{
+					height:2.1%;
+					width:1.4%;
+					position:absolute;
+					top:6.8%; left:40.5%; z-index: 10000; 
+					
+				}
 			/* 针对移动端设备的调整 */
 			@media (max-width: 768px) {
 				.container {
@@ -277,6 +313,52 @@
 				}
 				#js-text span.typing-effect {
 				    line-height: 1.0;
+					}
+					
+				#yh{
+					position:absolute;
+					width:40%;
+					left:45%;
+					bottom:-24%;
+					display:none;
+					z-index:11;
+					animation:yh 5s linear 1 forwards ;
+				}
+					
+				.vol1{
+					height:1.8%;
+					width:4%;
+					position:absolute;
+					top:12%; left:19%; z-index: 10000; 
+					
+				}
+				.vol2{
+						height:1.8%;
+						width:4%;
+						position:absolute;
+						top:27%; left:68%; z-index: 10000; 
+						
+					}
+				.vol0{
+						height:0;
+						width:0;
+						position:absolute;
+						top:0%; left:0%; z-index: 10000; 
+						
+					}
+				.vol3-1{
+						height:1.8%;
+						width:4%;
+						position:absolute;
+						top:9%; left:19%; z-index: 10000; 
+						
+					}
+				.vol3-2{
+						height:1.8%;
+						width:4%;
+						position:absolute;
+						top:9%; left:19%; z-index: 10000; 
+						
 					}
 			}
 			#js-text span.typing-effect {
@@ -326,11 +408,13 @@
 						                });
 						                // 根据需要重置或更新当前阶段的JavaScript逻辑（例如打字效果）
 						                if (stageNumber === 1) {
-						                    
+											
 						                }
 										if (stageNumber === 2) {
 										    // 重置打字效果（如果需要）
 										    if (stageNumber === 2) {
+												    document.getElementById("audioPlayer1").src= "oracle1-2.mp3";
+													document.getElementById("vol1").className= "vol2";
 										            const js2Text1Element = document.getElementById('js2-text1');
 										            const textForStage21 = "这么些年，我们一直做自己的生意，大家都知道，现在生意都不好做，要是我们联合起来建立一个商会，以后再也不用担心吃穿问题了，今天召集大家来这里，就是想看看各位的意见，一切都是为了家人。我同意我们合作。";
 										            js2Text1Element.innerHTML = '';
@@ -352,13 +436,16 @@
 							        }
 										}
 										if (stageNumber === 3) {
+										   document.getElementById("vol1").className= "vol0";
 										   const jdTextElement = document.getElementById('jd-text');
-										   const textForStage3 = "现在大家都做出了决定，请你也作出决定，你的一举一动都代表着濮商的发展";
+										   const textForStage3 = "现在大家都做出了决定，请你也作出决定，你的一举一动都代表着濮商的发展。";
 										   jdTextElement.innerHTML = '';
 										   typeText(jdTextElement, textForStage3, function() {
 										               // 打字完成后添加事件监听器
 										               const tyImg = document.getElementById('ty');
 										               tyImg.onclick = function() {
+														   document.getElementById("audioPlayer1").src= "oracle1-3-1.mp3";
+														   document.getElementById("vol1").className= "vol3-1";
 										                   const newText = "过了没多久，商会的发展迅速，生意也越做越大，你在其中做出了很多贡献，你的家族也成为了里面最大的家族，你还为会馆起了名字，叫做:";
 										                   jdTextElement.innerHTML = '';
 										                   typeText(jdTextElement, newText);
@@ -368,7 +455,9 @@
 										               };
 													   const jjImg = document.getElementById('jj');
 													   jjImg.onclick = function() {
-													       const newText2 = "过了没多久，你的绸缎被商会的风头盖过，门可罗雀，最后你还是加入了商会，并发展十分迅速，你成为了里面最大的家族，还为会馆起了名字，叫做:";
+														   document.getElementById("audioPlayer1").src= "oracle1-3-2.mp3";
+														   document.getElementById("vol1").className= "vol3-2";
+													       const newText2 = "过了没多久，你的绸缎被商会的风气盖过，门可罗雀，最后你还是加入了商会，并发展十分迅速，你成为了里面最大的家族，还为会馆起了名字，叫做:";
 													       jdTextElement.innerHTML = '';
 													       typeText(jdTextElement, newText2);
 													   		document.getElementById("ty").style.display="none";
@@ -438,14 +527,37 @@
 						    }
 						});
 			 		});
-				
-				    
+					
+				// 获取音频元素
+				        var volnum=0;
+				        
+				        function change(){  
+				            $("#start").attr("src", "src26_1.png");
+				        }  
+				        function reset(){
+				            $("#start").attr("src", "src26.png");
+				        } 
+				        
+				        function changevol1() {
+				            var volImg = document.getElementById("vol1");
+				            if (volnum == 1) {
+				                volImg.src = "voloff.jpg"; 
+				        		audioPlayer1.pause();
+				                volnum = 0; 
+				            } else {
+				                volImg.src = "volon.jpg";
+				        		audioPlayer1.play();
+				                volnum = 1;
+				            }
+				        
+				        }
 				
 		</script>
 	</head>
-	<body>
+	</body>
 		
-	
+	<img id="vol1" src="voloff.jpg" class="vol1" style="position:absolute;" alt='声音' onclick="changevol1()">
+	<audio id="audioPlayer1" src="oracle1-1.mp3" preload="auto"></audio>
 		<div class="container">	
 		    <div id="bg">
 			    <img class="bgimg" src="psbg2.png"/>
@@ -457,7 +569,7 @@
 				    <div id="c">
 				        <img id="jc" src="juece.png"/>
 					    <div id="js">
-			    			<span id="js-text"></span> <!-- 这里是显示打字效果的容器 -->
+			    			<span id="js-text"></span>
 					    </div>
 				    </div>
 				</div>

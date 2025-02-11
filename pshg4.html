@@ -186,6 +186,7 @@
 						 height:65%;/* 隐藏超出容器的文字 */
 						display: inline-block; /* 允许设置宽度和高度 */
 						vertical-align: top;
+						line-height: 1.6;
 						/* 垂直对齐 */
 					}
 			#ty{
@@ -210,10 +211,9 @@
 			}
 			#pss{
 				position:absolute;
-				width:40%;
-				left:27%;
-				
-				bottom:-35%;
+				width:30%;
+				left:32%;
+				bottom:-30%;
 				display:none;
 				z-index:11;
 				animation:pss 6s linear 1 forwards ;
@@ -227,8 +227,82 @@
 					  opacity: 1;
 				  }
 			}
+			
+			.vol1{
+					height:2.1%;
+					width:1.4%;
+					position:absolute;
+					top:6.8%; left:40.5%; z-index: 10000; 
+					
+				}
+			.vol2{
+					height:1.5%;
+					width:1%;
+					position:absolute;
+					top:27%; left:57%; z-index: 10000; 
+					
+				}
+			.vol0{
+					height:0;
+					width:0;
+					position:absolute;
+					top:0%; left:0%; z-index: 10000; 
+					
+				}
+			.vol3-1{
+					height:2.1%;
+					width:1.4%;
+					position:absolute;
+					top:6.8%; left:40.5%; z-index: 10000; 
+					
+				}
+			.vol3-2{
+					height:2.1%;
+					width:1.4%;
+					position:absolute;
+					top:6.8%; left:40.5%; z-index: 10000; 
+					
+				}
+				
 			/* 针对移动端设备的调整 */
 			@media (max-width: 768px) {
+				
+				.vol1{
+					height:1.8%;
+					width:4%;
+					position:absolute;
+					top:12%; left:19%; z-index: 10000; 
+					
+				}
+				.vol2{
+						height:1.8%;
+						width:4%;
+						position:absolute;
+						top:27%; left:68%; z-index: 10000; 
+						
+					}
+				.vol0{
+						height:0;
+						width:0;
+						position:absolute;
+						top:0%; left:0%; z-index: 10000; 
+						
+					}
+				.vol3-1{
+						height:1.8%;
+						width:4%;
+						position:absolute;
+						top:9%; left:19%; z-index: 10000; 
+						
+					}
+				.vol3-2{
+						height:1.8%;
+						width:4%;
+						position:absolute;
+						top:9%; left:19%; z-index: 10000; 
+						
+					}
+					
 				.container {
 					min-width: 100%; 
 					background-size: cover; 
@@ -240,6 +314,17 @@
 					left: initial; 
 					
 				}
+				
+				#pss{
+					position:absolute;
+					width:30%;
+					left:57%;
+					bottom:-35%;
+					display:none;
+					z-index:11;
+					animation:pss 6s linear 1 forwards ;
+				}
+				
 				#js2-text1 span.typing-effect {
 				    line-height: 1.8;
 				}
@@ -274,9 +359,11 @@
 			 			 }
 			 			    innerTypeText();
 			 			}
-			 				
+						
+						document.getElementById("audioPlayer1").src= "oracle2-1.mp3";
+						document.getElementById("vol1").className= "vol2";
 			 					            const js2Text1Element = document.getElementById('js2-text1');
-			 					            const textForStage21 = "随着牙行的发展，财富和精美的制品都数不胜数，但一直在当地发展远不满足我们的需求，所以要开启第二次会议，是否对外开放成了最重要的问题，我们几百年的历史，就是要敢拼敢搏。";
+			 					            const textForStage21 = "随着牙行的发展，财富与精美的制品数不胜数，但一直在当地发展远不满足我们的需求，于是开启第二次会议，是否对外开放就成了最重要的问题，我们几百年的历史，就是要敢拼敢搏。";
 			 					            js2Text1Element.innerHTML = '';
 			 					     
 			 					            typeText(js2Text1Element, textForStage21, () => {
@@ -314,6 +401,7 @@
 										    
 										}
 										if (stageNumber === 3) {
+										   document.getElementById("vol1").className= "vol0";
 										   const jdTextElement = document.getElementById('jd-text');
 										   const textForStage3 = "现在大家都做出了决定，请你也作出决定，你的一举一动都代表着濮商的发展。";
 										   jdTextElement.innerHTML = '';
@@ -321,7 +409,9 @@
 										               // 打字完成后添加事件监听器
 										               const tyImg = document.getElementById('ty');
 										               tyImg.onclick = function() {
-										                   const newText = "会议中多票战胜了少票，还是选择了对外开放，随着牙行的发展，我们拥有了更多的财富，对外发展十分迅速，吸引了许多洋人来购买，让商会达到了发展的顶峰，在江南下，你确定了我们的名字:";
+														   document.getElementById("audioPlayer1").src= "oracle2-2-1.mp3";
+														   document.getElementById("vol1").className= "vol3-1";
+										                   const newText = "会议中多票战胜少票，还是选择了对外开放，随着牙行开始发展，我们拥有了更多的财富，对外发展十分迅速，吸引了许多洋人来购买，让商会达到了发展的顶峰，在发展后，你确定了我们的名字:";
 														   
 														   jdTextElement.innerHTML = '';
 										                   typeText(jdTextElement, newText);
@@ -332,6 +422,8 @@
 										               };
 													   const jjImg = document.getElementById('jj');
 													   jjImg.onclick = function() {
+														   document.getElementById("audioPlayer1").src= "oracle2-2-2.mp3";
+														   document.getElementById("vol1").className= "vol3-2";
 													       const newText2 = "会议中多票战胜了少票，还是选择了对外开放，随着牙行的发展，我们拥有了更多的财富，对外发展十分迅速，吸引了许多洋人来购买，让商会达到了发展的顶峰，在江南下，你确定了我们的名字:";
 													       jdTextElement.innerHTML = '';
 													       typeText(jdTextElement, newText2);
@@ -405,11 +497,35 @@
 						
 			 		});
 					
+					var volnum=0;
+					
+					function change(){  
+					    $("#start").attr("src", "src26_1.png");
+					}  
+					function reset(){
+					    $("#start").attr("src", "src26.png");
+					} 
+					
+					function changevol1() {
+					    var volImg = document.getElementById("vol1");
+					    if (volnum == 1) {
+					        volImg.src = "voloff.jpg"; 
+							audioPlayer1.pause();
+					        volnum = 0; 
+					    } else {
+					        volImg.src = "volon.jpg";
+							audioPlayer1.play();
+					        volnum = 1;
+					    }
+					
+					}
+					
 		</script>
 	</head>
 	<body>
 		
-	
+		<img id="vol1" src="voloff.jpg" class="vol1" style="position:absolute;" alt='声音' onclick="changevol1()">
+		<audio id="audioPlayer1" src="oracle2-1.mp3" preload="auto"></audio>
 		<div class="container">	
 		    <div id="bg">
 			    <img class="bgimg" src="psbg4.png"/>
