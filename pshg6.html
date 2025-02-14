@@ -270,7 +270,7 @@
 					height:1.8%;
 					width:4%;
 					position:absolute;
-					top:12%; left:19%; z-index: 10000; 
+					top:33%; left:87.5%; z-index: 10000; 
 					
 				}
 				.vol2{
@@ -291,14 +291,14 @@
 						height:1.8%;
 						width:4%;
 						position:absolute;
-						top:9%; left:19%; z-index: 10000; 
+						top:7%; left:23.8%; z-index: 10000; 
 						
 					}
 				.vol3-2{
 						height:1.8%;
 						width:4%;
 						position:absolute;
-						top:9%; left:19%; z-index: 10000; 
+						top:7%; left:23.8%; z-index: 10000; 
 						
 					}
 				.container {
@@ -347,6 +347,9 @@
 			 			            newSpan.textContent = textToDisplay[textIndex];
 			 			            textElement.appendChild(newSpan);
 			 			            textIndex++;
+									if (textIndex === 1) {
+									    audioPlayer1.play();
+									}
 			 			            setTimeout(innerTypeText, typingSpeed);
 			 			        }else {
                                   if (callback && typeof callback === 'function') {
@@ -354,6 +357,28 @@
                                     }
 			 			    }
 			 			 }
+						 
+						 // 语音朗读函数
+						 let speaking = false;
+						 function speakText() {
+						     const utterance = new SpeechSynthesisUtterance(textToDisplay);
+						     utterance.lang = 'zh-CN'; // 设置语言为中文
+						 
+						     // 当语音开始时，设置speaking为true
+						     utterance.onstart = function () {
+						         speaking = true;
+						     };
+						 
+						     // 当语音结束时，设置speaking为false
+						     utterance.onend = function () {
+						         speaking = false;
+						     };
+						 
+						     // 如果浏览器支持语音合成，则朗读文本
+						     if (speechSynthesis) {
+						         speechSynthesis.speak(utterance);
+						     }
+						 }
 			 			    innerTypeText();
 			 			}
 			 				
@@ -492,7 +517,7 @@
 						
 			 		});
 					
-					var volnum=0;
+					var volnum=1;
 					
 					function change(){  
 					    $("#start").attr("src", "src26_1.png");
@@ -519,7 +544,7 @@
 	</head>
 	<body>
 		
-		<img id="vol1" src="voloff.jpg" class="vol1" style="position:absolute;" alt='声音' onclick="changevol1()">
+		<img id="vol1" src="volon.jpg" class="vol1" style="position:absolute;" alt='声音' onclick="changevol1()">
 		<audio id="audioPlayer1" src="oracle3-1.mp3" preload="auto"></audio>
 		<div class="container">	
 		    <div id="bg">

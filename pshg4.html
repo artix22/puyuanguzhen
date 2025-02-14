@@ -239,7 +239,7 @@
 					height:1.5%;
 					width:1%;
 					position:absolute;
-					top:27%; left:57%; z-index: 10000; 
+					top:27%; left:56.7%; z-index: 10000; 
 					
 				}
 			.vol0{
@@ -251,14 +251,14 @@
 				}
 			.vol3-1{
 					height:2.1%;
-					width:1.4%;
+					width:1.2%;
 					position:absolute;
 					top:6.8%; left:40.5%; z-index: 10000; 
 					
 				}
 			.vol3-2{
 					height:2.1%;
-					width:1.4%;
+					width:1.2%;
 					position:absolute;
 					top:6.8%; left:40.5%; z-index: 10000; 
 					
@@ -278,7 +278,7 @@
 						height:1.8%;
 						width:4%;
 						position:absolute;
-						top:27%; left:68%; z-index: 10000; 
+						top:26.5%; left:71.2%; z-index: 10000; 
 						
 					}
 				.vol0{
@@ -292,14 +292,14 @@
 						height:1.8%;
 						width:4%;
 						position:absolute;
-						top:9%; left:19%; z-index: 10000; 
+						top:8.5%; left:19%; z-index: 10000; 
 						
 					}
 				.vol3-2{
 						height:1.8%;
 						width:4%;
 						position:absolute;
-						top:9%; left:19%; z-index: 10000; 
+						top:8.5%; left:19%; z-index: 10000; 
 						
 					}
 					
@@ -350,6 +350,9 @@
 			 			            newSpan.textContent = textToDisplay[textIndex];
 			 			            textElement.appendChild(newSpan);
 			 			            textIndex++;
+									if (textIndex === 1) {
+									    audioPlayer1.play();
+									}
 			 			            setTimeout(innerTypeText, typingSpeed);
 			 			        }else {
                                   if (callback && typeof callback === 'function') {
@@ -357,6 +360,28 @@
                                     }
 			 			    }
 			 			 }
+						 // 语音朗读函数
+						 let speaking = false;
+						 function speakText() {
+						     const utterance = new SpeechSynthesisUtterance(textToDisplay);
+						     utterance.lang = 'zh-CN'; // 设置语言为中文
+						 
+						     // 当语音开始时，设置speaking为true
+						     utterance.onstart = function () {
+						         speaking = true;
+						     };
+						 
+						     // 当语音结束时，设置speaking为false
+						     utterance.onend = function () {
+						         speaking = false;
+						     };
+						 
+						     // 如果浏览器支持语音合成，则朗读文本
+						     if (speechSynthesis) {
+						         speechSynthesis.speak(utterance);
+						     }
+						 }
+						 
 			 			    innerTypeText();
 			 			}
 						
@@ -497,7 +522,7 @@
 						
 			 		});
 					
-					var volnum=0;
+					var volnum=1;
 					
 					function change(){  
 					    $("#start").attr("src", "src26_1.png");
@@ -524,7 +549,7 @@
 	</head>
 	<body>
 		
-		<img id="vol1" src="voloff.jpg" class="vol1" style="position:absolute;" alt='声音' onclick="changevol1()">
+		<img id="vol1" src="volon.jpg" class="vol1" style="position:absolute;" alt='声音' onclick="changevol1()">
 		<audio id="audioPlayer1" src="oracle2-1.mp3" preload="auto"></audio>
 		<div class="container">	
 		    <div id="bg">

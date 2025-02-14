@@ -194,10 +194,33 @@
 			 					newSpan.textContent = textToDisplay[textIndex];
 			 					jsTextElement.appendChild(newSpan);
 			 					textIndex++;
+								if (textIndex === 1) {
+								    audioPlayer.play();
+								}
 			 					setTimeout(typeText, typingSpeed);
 			 				}
 			 			}
-			  
+						
+						let speaking = false;
+						function speakText() {
+						    const utterance = new SpeechSynthesisUtterance(textToDisplay);
+						    utterance.lang = 'zh-CN'; // 设置语言为中文
+						
+						    // 当语音开始时，设置speaking为true
+						    utterance.onstart = function () {
+						        speaking = true;
+						    };
+						
+						    // 当语音结束时，设置speaking为false
+						    utterance.onend = function () {
+						        speaking = false;
+						    };
+						
+						    // 如果浏览器支持语音合成，则朗读文本
+						    if (speechSynthesis) {
+						        speechSynthesis.speak(utterance);
+						    }
+						}
 			 			typeText();
 			  
 			 			// 调整字体大小的函数（如果需要的话）
@@ -218,7 +241,7 @@
 			 			window.addEventListener('load', adjustFontSize);
 			 		});
 					
-					var volnum=0;
+					var volnum=1;
 					
 					function change(){  
 					    $("#start").attr("src", "src26_1.png");
@@ -245,7 +268,7 @@
 	<body>
 		
 		
-		<img id="vol" src="voloff.jpg" style="" alt="声音" onclick="changevol()">
+		<img id="vol" src="volon.jpg" style="" alt="声音" onclick="changevol()">
 		<audio id="audioPlayer" src="oracle2.mp3" preload="auto"></audio>
 		<div class="container">	
 		    <div id="bg">
