@@ -2,9 +2,10 @@
 <html>
 <head>
     <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <style>
         /* 基本的样式重置和布局 */
-        html, body {
+        html{
             margin: 0;
             padding: 0;
             height: 100%;
@@ -17,6 +18,7 @@
          
         .background {
             position: fixed;
+			object-fit: contain;
             top: 0;
             left: 0;
             width: 100%;
@@ -25,18 +27,21 @@
         }
          
         .jz-image {
-            position: fixed;
-            left: 50%;
-            transform: translateX(-50%);
-            height: 120%;
+			object-fit: contain;
 			width: auto;
             margin-top: 0;
             z-index: 0;
         }
          
         h1 {
-            font-size: 2vw; /* 使用视口宽度单位来设置字体大小 */
             margin: 10px 0; /* 添加一些外边距 */
+			position: absolute;
+			top: 42%; 
+			left: 50%; 
+			transform: translate(-50%, -50%); 
+			font-size: 4.3vw; 
+			font-family: 宋体;
+			color: #764019;
         }
          
 		 .question-option {
@@ -60,16 +65,97 @@
 		.buttonposition {
 		            position: absolute;
 		            top: 10%;
-		            left: 15%;
+		            left: 14%;
 		            transform: translateX(-50%); 
 		        }
+		#a{
+			position:absolute;
+			top: 60%; 
+			left: 35%; 
+			transform: translate(-50%, -50%);
+		}
+		#b{
+			position:absolute;
+			top: 60%; 
+			left: 70%; 
+			transform: translate(-50%, -50%);
+		}
+		#c{
+			position:absolute;
+			top: 65%; 
+			left: 35%; 
+			transform: translate(-50%, -50%);
+		}
+		#d{
+			position:absolute;
+			top: 65%; 
+			left: 70%; 
+			transform: translate(-50%, -50%);
+		}
          
         /* 媒体查询 */
-        @media (min-width: 1200px) {
+        @media (min-width: 750px) {
+			.buttonposition {
+			            position: absolute;
+			            top: 8%;
+			            left: 38%;
+			            transform: translateX(-50%); 
+			        }
             .jz-image {
                 width: 100vw;
-				height:120vw;
+				height:100vh;
             }
+			h1{
+			    margin: 10px 0; /* 添加一些外边距 */
+			    position: absolute;
+			    top: 42%; 
+			    left: 50%; 
+			    transform: translate(-50%, -50%); 
+			    font-size: 1.3vw; 
+			    font-family: 宋体;
+			    color: #764019;/* 添加一些外边距 */
+			}
+			.question-option {
+			     font-size: 1vw; 
+			     margin: 10px 0; 
+			     cursor: pointer;
+			     display: inline-block; 
+			     width: 20%; 
+			     text-align: center;
+				 }
+				 
+			.question-option1 {
+			    font-size: 1vw; 
+			    margin: 10px 0; 
+			    cursor: pointer;
+			    display: inline-block; 
+			    width: 20%; 
+			    text-align: center;
+			}
+			#a{
+				position:absolute;
+				top: 56%; 
+				left: 43%; 
+				transform: translate(-50%, -50%);
+			}
+			#b{
+				position:absolute;
+				top: 56%; 
+				left: 55%; 
+				transform: translate(-50%, -50%);
+			}
+			#c{
+				position:absolute;
+				top: 62%; 
+				left: 43%; 
+				transform: translate(-50%, -50%);
+			}
+			#d{
+				position:absolute;
+				top: 62%; 
+				left: 55%; 
+				transform: translate(-50%, -50%);
+			}
         }
     </style>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -100,15 +186,15 @@
     <img src="exambgfade.jpg" class="background">
 	<img src="exambgfade.jpg" class="background" id="right">
     <img src="jz.png" class="jz-image">
-    <h1 class="question-option1" style="position: absolute; top: 42%; left: 50%; transform: translate(-50%, -50%); font-size: 4.3vw; font-family: 宋体;color: #764019;">
+    <h1 class="question-option1">
         &nbsp岳元声：字之初，号石帆，别号潜初子。明万历(1573)十一年进士。先后任安徽旌德知县、北直隶大名府教授，迁国子博士转监丞，再迁工部主事，最高职务为南京户部右侍郎。他在任职期间刚正不阿，每发谠言，应对明神宗的一些施策，被称为“铁监丞”。请问岳元声哪年进士？
     </h1>
-    <div class="question-option" style="position:absolute;top: 60%; left: 35%; transform: translate(-50%, -50%);" id="a" onclick="no(this)">A 1585年</div>
-    <div class="question-option" style="position:absolute;top: 60%; left: 70%; transform: translate(-50%, -50%);" id="b" onclick="yes(this)">B 1583年</div>
-    <div class="question-option" style="position:absolute;top: 65%; left: 35%; transform: translate(-50%, -50%);" id="c" onclick="no(this)">C 2589年</div>
-    <div class="question-option" style="position:absolute;top: 65%; left: 70%; transform: translate(-50%, -50%);" id="d" onclick="no(this)">D 1683年</div>
+    <div class="question-option"  id="a" onclick="no(this)">A.1585年</div>
+    <div class="question-option"  id="b" onclick="yes(this)">B.1583年</div>
+    <div class="question-option"  id="c" onclick="no(this)">C.2589年</div>
+    <div class="question-option"  id="d" onclick="no(this)">D.1683年</div>
     <a href="mainmap3.html" class="buttonposition">
-        <img src="ann.png" style="height: 78px; width: 76px;">
+        <img src="ann.png" style="height: 60px; width: 60px;">
     </a>
 </body>
 </html>

@@ -2,53 +2,102 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>前往打更</title>
     <style>
+        /* 基础样式 */
+        body {
+            margin: 0;
+            overflow: hidden;
+            min-height: 100vh;
+        }
+ 
         #bg {
             animation: biging 3s ease forwards;
             transform-origin: center;
-            position: absolute; 
-            left: 0%;
-            top: 0%; 
-            width: 100%; 
-            height: auto; 
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: 5;
+        }
+ 
+        .background-img {
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            object-fit: contain;
+            z-index: 3;
         }
  
         .centered-img {
             position: absolute;
             left: 50%;
-            top: 54%; 
+            top: 65%;
             transform: translate(-50%, -50%);
+            width: 13vw;
+            height: auto;
+            transition: transform 0.3s ease;
         }
-		.smallbody {
-		            transition: transform 3s ease;
-		        }
+ 
+        .smallbody {
+            transition: transform 3s ease;
+            width: 3vw;
+            height: auto;
+            position: absolute;
+            top: 5%;
+            left: 5%;
+            z-index: 10;
+        }
  
         @keyframes biging {
             from {
-                transform: scale(1.0) translate(0, 0);
+                transform: scale(1.0);
                 opacity: 1;
-                z-index: 10; 
             }
             to {
-                transform: scale(3.5) translate(0, 0); 
+                transform: scale(3.5);
                 opacity: 0;
-                z-index: 5;
+            }
+        }
+ 
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .centered-img {
+                width: 20vw;
+            }
+            
+            .smallbody {
+				top: 5%;
+				left: 36%;
+                width: 10vw;
+            }
+        }
+ 
+        @media (max-width: 480px) {
+            .centered-img {
+                width: 50vw;
+            }
+            
+            .smallbody {
+				top: 20%;
+				left: 6%;
+                width: 13vw;
             }
         }
     </style>
-	<script>
-	</script>
 </head>
 <body>
-    <img src="beigenglou1_1.jpg" id="bg">
-    <img src="beigenglou1_2.jpg" style="position: absolute; left: 0%; top: 0%; z-index: 3; width: 100%; height: auto;">
+    <!-- 背景图使用cover模式保持比例 -->
+    <img src="beigenglou1_1.jpg" id="bg" class="background-img">
+    <img src="beigenglou1_2.jpg" class="background-img">
+    
     <a href="dageng2_1.html">
         <img src="beigenglou1_2_door.png" class="centered-img" style="z-index: 8;">
     </a>
-	<a href="dageng1_1.html">
-	    <img src="backback.png" id="smallbody" class="smallbody" style="height:61px;width:57px;position: absolute;top:5%;left:2%;z-index: 10;">
-	</a>
+ 
+    <a href="dageng1_1.html">
+        <img src="backback.png" id="smallbody" class="smallbody">
+    </a>
 </body>
 </html>

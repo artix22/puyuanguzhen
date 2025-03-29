@@ -22,7 +22,7 @@
  
         #beigengbg {
             position: absolute;
-			top:3%;
+			top:0%;
             z-index: 1; 
         }
  
@@ -59,6 +59,15 @@
 			right:5%;
 			z-index: 7;
 		}
+		#kuaiman3{
+			z-index: 9;
+			position:absolute;
+			right:14%;
+			top:46.5%;
+			color: #764019;
+			font-family: 宋体;
+		}
+		
  
         #clickButton img {
             width: auto; 
@@ -68,11 +77,50 @@
         #result {
             margin-top: 20px; 
         }
+				
+		@media (min-width: 785px) {
+			#clickButton {
+			    position: absolute;
+			    display: inline-block;
+			    padding: 0;
+			    top:60%;
+				z-index: 8;
+			}
+					#kuaiman{
+						position: absolute;
+						display: inline-block;
+						width:2%;
+						top:62%;
+						right:35%;
+						z-index: 6;
+					}
+					#kuaiman2{
+						position: absolute;
+						display: inline-block;
+						width:2%;
+						top:62%;
+						right: 35%;
+						z-index: 7;
+						
+					}
+					#kuaiman3{
+						z-index: 9;
+						position:absolute;
+						right:32%;
+						top:64%;
+						color: #764019;
+						font-size: 125%;
+						font-family: 宋体;
+					}
+				}
+		
+}
     </style>
 </head>
 <body>
     <img id="beigengbg" src="beigengbg.png" alt="背景图">
     <img id="beigengnight" src="beigengnight.png" alt="夜晚图">
+	<audio id="playerluo" src="luo.mp3" preload="auto"></audio>
 	<a id="clickfontyes" href="mainmap2.html" onclick="pintu()">
 		<img id="true" src="uifont.png" alt="字幕" style="opacity: 0;z-index: 10;">
 	</a>
@@ -80,12 +128,12 @@
 		<img id="false" src="uifontx.jpg" alt="字幕2" style="opacity: 0;z-index: 10;">
 	</a>
     <a id="clickButton">
-        <img src="clickButton.png" alt="点击按钮">
+        <img src="clickButton.png" alt="点击按钮" onclick="ring()" onmouseover="faded(this)" onmouseout="unfaded(this)">
     </a>
     <img src="slow1.png" id="kuaiman" alt="进度">
 	<img src="slow2.png" id="kuaiman2">
 	
-	<p style="z-index: 9;position:absolute;right:14%;top:46.5%;color: #764019;font-family: 宋体;">快<br><br><br><br><br><br>慢</p>
+	<p id="kuaiman3">快<br><br><br><br><br><br>慢</p>
 	
 	<script type="text/javascript"></script>
     <script>
@@ -100,6 +148,18 @@
 			e.style.opacity=0;
 			e.style.zIndex=1;
 		}
+		function faded(e){
+			e.style.opacity=0.36;
+		}
+		function unfaded(e){
+			e.style.opacity=1;
+		}
+		
+		
+		function ring(){
+			document.getElementById("clickButton").src="luo.mp3";
+			playerluo.play();
+		}
 		
 		
         document.addEventListener("DOMContentLoaded", function() {
@@ -113,9 +173,10 @@
                 if (lastClickTime !== null) {
                     const clickDuration = currentTime - lastClickTime; // 计算点击间隔（毫秒）
                     const clickSpeed = 1000 / clickDuration; // 计算每秒点击次数
- 
+					
 					if(clickDuration>=1000 && clickDuration<=2000)
 					{
+
 						document.getElementById("beigengnight").src="beigengday.png";
 						document.getElementById("true").style.opacity=1;
 						document.getElementById("clickButton").style.zIndex = 8;

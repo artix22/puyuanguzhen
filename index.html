@@ -1,0 +1,65 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+    <meta charset="utf-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>濮院古镇-首页</title>  
+    <style>  
+        html, body {
+            padding: 0;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+			z-index: 0;
+        }
+        body {
+        	top:20%;
+        	left:50%;
+        	justify-content: center;
+            background-image: url('startmain.png');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+         
+        .img-wrapper {
+			
+            position: relative;
+            width: 80%;
+            height: 80%; 
+            display: flex; 
+            justify-content: center;
+            align-items: center;
+			transform: translateY(41%) translateX(8%);
+
+		}
+		
+    </style>
+    <script type="text/javascript">  
+	    var volnum=0;
+		
+        function change(){  
+            $("#start").attr("src", "src26_1.png");
+        }  
+		function reset(){
+		    $("#start").attr("src", "src26.png");
+		} 
+		
+	
+		localStorage.setItem('counter',0);
+		
+    </script> 
+</head>  
+<body>
+    <div class="img-wrapper" id="imgContainer1">  
+		<audio id="audioPlayer" src="gufeng.mp3" preload="auto"></audio>
+        <div class="start-button">  
+            <a href="loading.html">
+                <img id="start" class="img-wrapper" src="startbutton.png">  
+            </a>  
+        </div>  
+    </div>  
+</body>  
+</html>

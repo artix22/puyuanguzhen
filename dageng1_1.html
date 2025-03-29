@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>穿越时光之旅</title>
+	<link rel="stylesheet" href="styles.css">
     <style>
-        /* 样式保持不变 */
+        
         html{
-            margin: 10% auto;
             padding: 0;
-            height: 70%;
+            height: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -25,23 +25,68 @@
 		    align-items: center;
 		    overflow: hidden;
             background-image: url('beigenglou1_1.jpg');
-            background-size: cover;
+            background-size: contain;
             background-position: center;
             background-repeat: no-repeat;
             transition: transform 3s ease;
 			transform-origin: center center;
         }
-		@keyframe transform{
-			from{scale(1.0);}
-			to{scale(1.2);}
+		
+		img {
+		    position: absolute;
+		    transform: scale(0.7); 
 		}
 		
+		
 		.smallbody {
-		            transition: transform 3s ease;
+		            transition: transform 3s ease forwards;
 		        }
+				
+		@keyframe transform{
+			from{transfrom:scale(1.0);}
+			to{transfrom:scale(1.2);}
+		}
+				
 				
         .big {
             transform: scale(1.5);
+			}
+			
+			
+		@media (min-width: 780px) {
+		            #in {
+		                    top: 10%; 
+		                    right: 35%; 
+		                    transform: scale(1); 
+		                }
+		     
+		            #map {
+		                    top: 30%; 
+		                    right: 35%; 
+		                    transform: scale(1); 
+		                }
+		     
+		            #bag{
+		                    top: 50%; 
+		                    right: 35%; 
+		                    transform: scale(1);
+		                }
+		     
+		            #go{
+		                    top: 80%; 
+		                    right: 35%;
+		                    height: 150px; 
+		                    width: 150px; 
+		                }
+		     
+		            #smallbody {
+		                    top: auto; 
+		                    top: 10%; 
+		                    left: 36%;
+		                    height: 70px; 
+		                    width: 65px;
+		                }
+						}
         }
     </style>
     <script>
@@ -51,30 +96,30 @@
             img.classList.add("big");
 			document.body.classList.add("body-big");
             setTimeout(function() {
-                window.location.href = "dageng1_2.html";}, 3000);
+                window.location.href = "dageng1_2.html";}, 1000);
         }
     </script>
 </head>
 <body>
     <body>
 		<a href="index.html">
-			<img src="gotohome.png" style="height:82px;width:81px;position: absolute;top:22%;right:-1.5%;transform: scale(0.7)">
+			<img id="in" src="gotohome.png">
 		</a>
 		
 		<a href="mainmap1.html">
-			<img src="gotomap.png" style="height:82px;width:81px;position: absolute;top:34%;right:-1.5%;transform: scale(0.7)">
+			<img id="map" src="gotomap.png">
 		</a>
 		
 		<a href="pintunext.html">
-			<img src="gotobag.png" style="height:82px;width:81px;position: absolute;top:46%;right:-1.5%;transform: scale(0.7)">
+			<img id="bag" src="gotobag.png">
 		</a>
  
     <a href="dageng1_2.html" onclick="bigAndRedirect(event)">
-        <img src="gogogo.png" id="smallbody" class="smallbody" style="height:126px;width:126px;position: absolute;top:62%;right:-2%;">
+        <img id="go" src="gogogo.png" id="smallbody" class="smallbody">
     </a>
 	
 	<a href="mainmap1.html" >
-	    <img src="backback.png" id="smallbody" class="smallbody" style="height:61px;width:57px;position: absolute;top:8%;left:2%;">
+	    <img src="backback.png" id="smallbody">
 	</a>
 </body>
 </html>

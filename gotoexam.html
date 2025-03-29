@@ -14,7 +14,7 @@
         }
         body {
             background-image: url('ysys.jpg');
-            background-size: cover;
+            background-size: content;
             background-position: center center;
             background-repeat: no-repeat;
         }
@@ -38,6 +38,16 @@
             left: 4%; 
 			z-index: 10;
         }
+		@media (min-width: 780px) {
+			.map-link {
+			    position: absolute;
+				height:4%;
+				width:4%;
+			    top: 4%;
+			    left: 32.5%; 
+				z-index: 10;
+			}
+			}
     </style>
     <title>岳氏三进士</title>
 </head>
@@ -48,7 +58,7 @@
         </a>
         <div class="map-link">
             <a href="gotoexam1.html">
-                <img src="ann.png" alt="TOmap">
+                <img id="smallbodyn" src="ann.png" alt="TOmap">
             </a>
         </div>
     </div>
